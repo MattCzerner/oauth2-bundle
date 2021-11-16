@@ -37,7 +37,7 @@ final class AccessTokenManager implements AccessTokenManagerInterface
 
         $now = new DateTimeImmutable();
         $this->accessTokens = array_filter($this->accessTokens, static function (AccessToken $accessToken) use ($now): bool {
-            return $accessToken->getExpiry() >= $now;
+            return $accessToken->getExpiryDateTime() >= $now;
         });
 
         return $count - \count($this->accessTokens);

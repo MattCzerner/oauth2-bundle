@@ -51,7 +51,7 @@ final class TestHelper
             'auth_code_id' => $authCode->getIdentifier(),
             'scopes' => (new ScopeConverter())->toDomainArray($authCode->getScopes()),
             'user_id' => $authCode->getUserIdentifier(),
-            'expire_time' => $authCode->getExpiryDateTime()->getTimestamp(),
+            'expire_time' => $authCode->getExpiry()->getTimestamp(),
             'code_challenge' => null,
             'code_challenge_method' => null,
         ]);
@@ -81,7 +81,7 @@ final class TestHelper
         $accessTokenEntity = new AccessTokenEntity();
         $accessTokenEntity->setPrivateKey(new CryptKey(self::PRIVATE_KEY_PATH, null, false));
         $accessTokenEntity->setIdentifier($accessToken->getIdentifier());
-        $accessTokenEntity->setExpiryDateTime($accessToken->getExpiry());
+        $accessTokenEntity->setExpiryDateTime($accessToken->getExpiryDateTime());
         $accessTokenEntity->setClient($clientEntity);
         $accessTokenEntity->setUserIdentifier($accessToken->getUserIdentifier());
 

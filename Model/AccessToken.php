@@ -16,7 +16,7 @@ class AccessToken
     /**
      * @var DateTimeInterface
      */
-    private $expiry;
+    private $expiryDateTime;
 
     /**
      * @var string|null
@@ -46,7 +46,7 @@ class AccessToken
         array $scopes
     ) {
         $this->identifier = $identifier;
-        $this->expiry = $expiry;
+        $this->expiryDateTime = $expiry;
         $this->client = $client;
         $this->userIdentifier = $userIdentifier;
         $this->scopes = $scopes;
@@ -64,7 +64,7 @@ class AccessToken
 
     public function getExpiry(): DateTimeInterface
     {
-        return $this->expiry;
+        return $this->expiryDateTime;
     }
 
     public function getUserIdentifier(): ?string
