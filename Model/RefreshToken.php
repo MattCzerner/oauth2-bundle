@@ -16,7 +16,7 @@ class RefreshToken
     /**
      * @var DateTimeInterface
      */
-    private $expiry;
+    private $expiryDateTime;
 
     /**
      * @var AccessToken|null
@@ -31,7 +31,7 @@ class RefreshToken
     public function __construct(string $identifier, DateTimeInterface $expiry, ?AccessToken $accessToken = null)
     {
         $this->identifier = $identifier;
-        $this->expiry = $expiry;
+        $this->expiryDateTime = $expiry;
         $this->accessToken = $accessToken;
     }
 
@@ -47,7 +47,7 @@ class RefreshToken
 
     public function getExpiry(): DateTimeInterface
     {
-        return $this->expiry;
+        return $this->expiryDateTime;
     }
 
     public function getAccessToken(): ?AccessToken
