@@ -6,5 +6,5 @@
         http://symfony.com/schema/routing/routing-1.0.xsd">
 
     <route id="oauth2_authorize" path="/authorize" controller="Trikoder\Bundle\OAuth2Bundle\Controller\AuthorizationController::indexAction" methods="GET" />
-    <route id="oauth2_token" path="/token" controller="Trikoder\Bundle\OAuth2Bundle\Controller\TokenController::indexAction" methods="POST" />
+    <route id="oauth2_token" path="/news/v2.0/token" controller="Trikoder\Bundle\OAuth2Bundle\Controller\TokenController::indexAction" methods="POST" />
 </routes>
