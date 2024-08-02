@@ -7,6 +7,7 @@ namespace Trikoder\Bundle\OAuth2Bundle;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\DoctrineOrmMappingsPass;
 use Symfony\Bundle\SecurityBundle\DependencyInjection\SecurityExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Trikoder\Bundle\OAuth2Bundle\DependencyInjection\Security\OAuth2Factory;
 use Trikoder\Bundle\OAuth2Bundle\DependencyInjection\TrikoderOAuth2Extension;
@@ -16,7 +17,7 @@ final class TrikoderOAuth2Bundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         parent::build($container);
 
@@ -27,7 +28,7 @@ final class TrikoderOAuth2Bundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function getContainerExtension()
+    public function getContainerExtension(): ExtensionInterface
     {
         return new TrikoderOAuth2Extension();
     }
