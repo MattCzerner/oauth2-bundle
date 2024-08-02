@@ -51,7 +51,7 @@ final class TrikoderOAuth2Extension extends Extension implements PrependExtensio
      *
      * @throws Exception
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
@@ -80,7 +80,7 @@ final class TrikoderOAuth2Extension extends Extension implements PrependExtensio
     /**
      * {@inheritdoc}
      */
-    public function getAlias()
+    public function getAlias(): string
     {
         return 'trikoder_oauth2';
     }
@@ -88,7 +88,7 @@ final class TrikoderOAuth2Extension extends Extension implements PrependExtensio
     /**
      * {@inheritdoc}
      */
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         $container->prependExtensionConfig('doctrine', [
             'dbal' => [
@@ -105,7 +105,7 @@ final class TrikoderOAuth2Extension extends Extension implements PrependExtensio
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process(ContainerBuilder $container): void
     {
         $this->assertRequiredBundlesAreEnabled($container);
     }
